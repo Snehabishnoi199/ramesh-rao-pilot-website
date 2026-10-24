@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
 
 :root {
   font-family: 'DM Sans', sans-serif;
@@ -1743,7 +1743,7 @@ main { width: 100%; overflow: hidden; }
     right: 0;
   }
 }
-/* Premium circular Ramesh Rao Pilot logo */
+/* Premium circular Dr. Ramesh Rao Pilot logo */
 .brand-mark {
   width: 76px;
   height: 76px;
@@ -1806,7 +1806,7 @@ main { width: 100%; overflow: hidden; }
   text-transform: uppercase;
 }
 
-/* Ramesh Rao Pilot - Premium Brand Logo */
+/* Dr. Ramesh Rao Pilot - Premium Brand Logo */
 .navbar .brand {
   display: inline-flex;
   align-items: center;
@@ -1913,7 +1913,7 @@ main { width: 100%; overflow: hidden; }
   }
 }
 
-/* Premium typography for Ramesh Rao Pilot logo */
+/* Premium typography for Dr. Ramesh Rao Pilot logo */
 .navbar .brand-text {
   display: flex;
   flex-direction: column;
@@ -2307,5 +2307,26 @@ footer#contact.site-footer {
     align-items: flex-start;
     flex-direction: column;
     gap: 20px;
+  }
+}
+
+/* Keep the hero name on balanced lines */
+.hero-copy h1 {
+  font-size: clamp(38px, 4.5vw, 64px);
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.hero-copy h1 span {
+  display: inline;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .hero-copy h1 {
+    font-size: clamp(32px, 8vw, 44px);
+    letter-spacing: -1px;
   }
 }

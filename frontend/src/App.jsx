@@ -1,4 +1,4 @@
-
+﻿
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
@@ -12,26 +12,26 @@ import "./App.css";
 const heroSlides = [
   {
     image: "/ramesh-rao-pilot.png",
-    alt: "Ramesh Rao Pilot",
-    eyebrow: "MAHENDRAGARH · HARYANA",
-    title: "Ramesh Rao",
+    alt: "Dr. Ramesh Rao Pilot",
+    eyebrow: "MAHENDRAGARH Â· HARYANA",
+    title: "Dr. Ramesh Rao",
     highlight: "Pilot",
     description:
-      "Discover the professional journey, public activities and latest updates of Ramesh Rao Pilot.",
+      "Discover the professional journey, public activities and latest updates of Dr. Ramesh Rao Pilot.",
   },
   {
     image: "/event1.png",
-    alt: "Ramesh Rao Pilot at a public gathering",
-    eyebrow: "PUBLIC SERVICE · HARYANA",
+    alt: "Dr. Ramesh Rao Pilot at a public gathering",
+    eyebrow: "PUBLIC SERVICE Â· HARYANA",
     title: "Dedicated to",
     highlight: "Public Service",
     description:
-      "Explore the work, activities and journey of Ramesh Rao Pilot.",
+      "Explore the work, activities and journey of Dr. Ramesh Rao Pilot.",
   },
   {
     image: "/event2.png",
-    alt: "Ramesh Rao Pilot at a public event",
-    eyebrow: "MAHENDRAGARH · HARYANA",
+    alt: "Dr. Ramesh Rao Pilot at a public event",
+    eyebrow: "MAHENDRAGARH Â· HARYANA",
     title: "Building a",
     highlight: "Better Tomorrow",
     description:
@@ -52,7 +52,7 @@ export default function App() {
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveSlide((current) => (current + 1) % heroSlides.length);
-    }, 15000);
+    }, 5000);
 
     return () => clearInterval(timer);
   }, []);
@@ -64,11 +64,11 @@ export default function App() {
       <nav className="navbar">
         <a href="/" className="brand">
           <span className="brand-mark">
-            <img src="/ramesh-logo.png" alt="Ramesh Rao Pilot" />
+            <img src="/ramesh-logo.png" alt="Dr. Ramesh Rao Pilot" />
           </span>
 
           <span className="brand-text">
-            <strong>RAMESH RAO PILOT</strong>
+            <strong>Dr. Ramesh Rao Pilot</strong>
             <small>Social Activist</small>
           </span>
         </a>
@@ -196,7 +196,7 @@ export default function App() {
           viewport={{ once: true, amount: 0.25 }}
           transition={{ duration: 0.7 }}
         >
-          <span className="card-symbol">✳</span>
+          <span className="card-symbol">âœ³</span>
           <h3>Professional Journey</h3>
           <p>
             A dedicated space for verified milestones and
@@ -225,7 +225,7 @@ export default function App() {
             transition={{ duration: 0.7, delay: 0.15 }}
           >
             Updates, public engagements and important moments from
-            Ramesh Rao Pilot&apos;s journey.
+            Dr. Ramesh Rao Pilot&apos;s journey.
           </motion.p>
         </div>
 
@@ -240,7 +240,7 @@ export default function App() {
             <a href="#contact" className="news-image-link">
               <img
                 src="/event1.png"
-                alt="Ramesh Rao Pilot at a public gathering"
+                alt="Dr. Ramesh Rao Pilot at a public gathering"
               />
               <span className="news-image-label">FEATURED</span>
             </a>
@@ -270,7 +270,7 @@ export default function App() {
               viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.65, delay: 0.15 }}
             >
-              <img src="/event2.png" alt="Ramesh Rao Pilot at a public event" />
+              <img src="/event2.png" alt="Dr. Ramesh Rao Pilot at a public event" />
 
               <div className="news-small-content">
                 <span className="news-category">PUBLIC ACTIVITIES</span>
@@ -291,7 +291,7 @@ export default function App() {
             >
               <img
                 src="/event3.png"
-                alt="Ramesh Rao Pilot speaking at a gathering"
+                alt="Dr. Ramesh Rao Pilot speaking at a gathering"
               />
 
               <div className="news-small-content">
@@ -387,7 +387,7 @@ export default function App() {
           <h2>Beyond the Headlines</h2>
           <p>
             Discover the journey, public moments, thoughts and stories
-            connected with Ramesh Rao Pilot.
+            connected with Dr. Ramesh Rao Pilot.
           </p>
         </motion.div>
 
@@ -400,7 +400,7 @@ export default function App() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <span className="quote-mark">“</span>
+              <span className="quote-mark">â€œ</span>
               <span className="exclusive-tag">THOUGHTS &amp; VALUES</span>
               <h3>A journey shaped by purpose and dedication.</h3>
               <p>
@@ -417,7 +417,7 @@ export default function App() {
               viewport={{ once: true }}
               transition={{ duration: 0.65, delay: 0.1 }}
             >
-              <img src="/event5.png" alt="Ramesh Rao Pilot at a public gathering" />
+              <img src="/event5.png" alt="Dr. Ramesh Rao Pilot at a public gathering" />
               <span className="exclusive-tag photo-tag">PUBLIC LIFE</span>
               <div className="exclusive-photo-caption">
                 <h3>Moments from the journey</h3>
@@ -436,13 +436,13 @@ export default function App() {
             >
               <img
                 src="/event4.png"
-                alt="Ramesh Rao Pilot speaking at a public event"
+                alt="Dr. Ramesh Rao Pilot speaking at a public event"
               />
               <span className="exclusive-tag photo-tag">FEATURED STORY</span>
               <div className="exclusive-photo-caption">
                 <h3>The person behind the public profile</h3>
                 <p>Explore his journey and verified background.</p>
-                <a href="#about">Discover more ↗</a>
+                <a href="#about">Discover more â†—</a>
               </div>
             </motion.article>
           </div>
@@ -455,7 +455,7 @@ export default function App() {
               viewport={{ once: true }}
               transition={{ duration: 0.65, delay: 0.18 }}
             >
-              <img src="/event6.png" alt="Ramesh Rao Pilot" />
+              <img src="/event6.png" alt="Dr. Ramesh Rao Pilot" />
               <span className="exclusive-tag photo-tag">BIOGRAPHY</span>
               <div className="exclusive-photo-caption">
                 <h3>Know the journey</h3>
@@ -477,7 +477,7 @@ export default function App() {
                 stories from public engagements.
               </p>
               <a href="#news">
-                Explore updates <span>↗</span>
+                Explore updates <span>â†—</span>
               </a>
             </motion.article>
           </div>
@@ -510,7 +510,7 @@ export default function App() {
           </a>
         </motion.div>
 
-        <span className="journey-side-label">RAMESH RAO PILOT · HARYANA</span>
+        <span className="journey-side-label">Dr. Ramesh Rao Pilot Â· HARYANA</span>
       </section>
 
       {/* PUBLIC ENGAGEMENTS */}
@@ -580,11 +580,11 @@ export default function App() {
       <div className="footer-brand">
         <img
           src="/ramesh-logo.png"
-          alt="Ramesh Rao Pilot logo"
+          alt="Dr. Ramesh Rao Pilot logo"
           className="footer-logo"
         />
         <div>
-          <h2>RAMESH RAO PILOT</h2>
+          <h2>Dr. Ramesh Rao Pilot</h2>
           <span>OFFICIAL WEBSITE</span>
         </div>
       </div>
@@ -597,11 +597,11 @@ export default function App() {
 
       <p className="footer-description">
         Explore the journey, public engagements, news and activities
-        of Ramesh Rao Pilot through this official website.
+        of Dr. Ramesh Rao Pilot through this official website.
       </p>
 
       <a href="#about" className="footer-explore">
-        EXPLORE THE JOURNEY <span>→</span>
+        EXPLORE THE JOURNEY <span>â†’</span>
       </a>
     </div>
 
@@ -623,11 +623,11 @@ export default function App() {
 
     <div className="footer-column footer-location">
       <h3>LOCATION</h3>
-      <div className="footer-location-icon">⌖</div>
+      <div className="footer-location-icon">âŒ–</div>
       <h4>Mahendragarh</h4>
       <p>Haryana, India</p>
       <a href="#contact" className="footer-contact-link">
-        Get in Touch <span>↗</span>
+        Get in Touch <span>â†—</span>
       </a>
     </div>
   </div>
@@ -643,7 +643,7 @@ export default function App() {
   <div className="footer-bottom">
     <div className="footer-copyright">
       <p>
-        © {new Date().getFullYear()} Ramesh Rao Pilot.
+        Â© {new Date().getFullYear()} Dr. Ramesh Rao Pilot.
         All rights reserved.
       </p>
       <span>Mahendragarh, Haryana, India</span>
@@ -659,7 +659,7 @@ export default function App() {
          e.preventDefault();
          window.scrollTo({ top: 0, behavior: "smooth" });
        }}>
-      BACK TO TOP ↑
+      BACK TO TOP â†‘
     </a>
   </div>
 </footer>
