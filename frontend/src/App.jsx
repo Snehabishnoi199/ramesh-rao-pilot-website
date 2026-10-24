@@ -42,6 +42,7 @@ const heroSlides = [
 ];
 
 export default function App() {
+  const [language, setLanguage] = useState("EN");
   const [activeSlide, setActiveSlide] = useState(0);
 
   const changeSlide = (direction) => {
@@ -63,36 +64,67 @@ export default function App() {
 
   return (
     <main id="top">
-      <nav className="navbar">
-        <a href="#top" className="brand">
-          <span className="brand-mark">
-            <img src="/ramesh-logo.png" alt="Dr. Ramesh Rao Pilot" />
-          </span>
+     
+<nav className="navbar">
+  {/* EXISTING LOGO — KEEP AS IT IS */}
+  <a href="#top" className="brand">
+    <span className="brand-mark">
+      <img src="/ramesh-logo.png" alt="Dr. Ramesh Rao Pilot" />
+    </span>
 
-          <span className="brand-text">
-            <strong>Dr. Ramesh Rao Pilot</strong>
-            <small>Social Activist</small>
-          </span>
-        </a>
+    <span className="brand-text">
+      <strong>Dr. Ramesh Rao Pilot</strong>
+      <small>Social Activist</small>
+    </span>
+  </a>
 
-        <div className="nav-links">
-          <a href="#about">About</a>
-          <a href="#activities">Public Life</a>
-          <a href="#news">News</a>
-          <a href="#contact">Contact</a>
-        </div>
+  {/* ALL LINKS IN ONE HORIZONTAL LINE */}
+  <div className="nav-links">
+    <a href="#top">Home</a>
+    <a href="#about">About</a>
+    <a href="#activities">Events</a>
+    <a href="#exclusive">Speeches</a>
+    <a href="#gallery">Photo Gallery</a>
+    <a href="#media">Press</a>
+    <a href="#contact">Contact Us</a>
+  </div>
+  <div className="language-switch">
+  <button
+    type="button"
+    onClick={() => setLanguage("en")}
+    className={language === "en" ? "active" : ""}
+  >
+    English
+  </button>
 
-        <button
-          className="menu-button"
-          aria-label="Menu"
-          type="button"
-          onClick={() => {
-            document.querySelector(".nav-links")?.classList.toggle("nav-open");
-          }}
-        >
-          <Menu />
-        </button>
-      </nav>
+  <span>|</span>
+
+  <button
+    type="button"
+    onClick={() => setLanguage("hi")}
+    className={language === "hi" ? "active" : ""}
+  >
+    हिंदी
+  </button>
+</div>
+
+  {/* MOBILE MENU */}
+  <button
+    className="menu-button"
+    aria-label="Toggle navigation menu"
+    aria-expanded={
+      typeof document !== "undefined" &&
+      document.querySelector(".nav-links")?.classList.contains("nav-open")
+    }
+    type="button"
+    onClick={() => {
+      document.querySelector(".nav-links")?.classList.toggle("nav-open");
+    }}
+  >
+    <Menu />
+  </button>
+</nav>
+
 
      
 
@@ -365,69 +397,94 @@ export default function App() {
         </div>
       </section>
 
-      {/* MEDIA COVERAGE */}
-      <section className="media-coverage" id="media">
-        <div className="media-heading">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="media-eyebrow">IN THE NEWS</span>
-            <h2>Media Coverage</h2>
-          </motion.div>
+      
+{/* MEDIA COVERAGE */}
+<section className="media-coverage" id="media">
+  <div className="media-heading">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+    >
+      <span className="media-eyebrow">AS FEATURED IN THE PRESS</span>
+      <h2>Media Coverage</h2>
+    </motion.div>
 
-          <a href="#news" className="media-view-all">
-            Latest updates <ArrowRight size={17} />
-          </a>
-        </div>
+    <a
+      href="https://timesofindia.indiatimes.com/elections/lok-sabha-elections/haryana/news/haryana-bsp-lsp-name-six-candidates/articleshow/68698835.cms"
+      className="media-view-all"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Latest updates <ArrowRight size={17} />
+    </a>
+  </div>
 
-        <div className="media-grid">
-          {[
-            {
-              category: "PUBLIC LIFE",
-              title: "Public Engagements & Community Connections",
-              description:
-                "Highlights from public gatherings and community interactions.",
-            },
-            {
-              category: "MAHENDRAGARH",
-              title: "Updates from the Region",
-              description:
-                "Follow verified announcements and activities from the region.",
-            },
-            {
-              category: "EVENTS",
-              title: "Moments from Public Events",
-              description:
-                "Photographs and highlights from public meetings and events.",
-            },
-            {
-              category: "ANNOUNCEMENTS",
-              title: "Official News & Updates",
-              description:
-                "Important updates published through the official website.",
-            },
-          ].map((item, index) => (
-            <motion.article
-              className="media-card"
-              key={item.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.15 }}
-              transition={{ duration: 0.55, delay: index * 0.12 }}
-            >
-              <span className="media-card-category">{item.category}</span>
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
-              <a href="#news" aria-label={`Read ${item.title}`}>
-                Explore story <ArrowRight size={16} />
-              </a>
-            </motion.article>
-          ))}
-        </div>
-      </section>
+  <div className="media-grid">
+    {[
+     
+{
+  category: "HONORARY DOCTORATE",
+  title: "Ramesh Rao Pilot Honoured with Honorary Doctorate",
+  description:
+    "Read the news report about Ramesh Rao Pilot being honoured with an honorary doctorate for his contributions to society.",
+  url: "https://www.amarujala.com/haryana/mahendragarh-narnaul/pilot-honored-upon-receiving-honorary-doctorate-narnol-news-c-203-1-mgh1006-131140-2026-10-18",
+},
+
+      {
+        category: "THE TIMES OF INDIA",
+        title: "LSP-BSP Alliance Announces Candidates",
+        description:
+          "A follow-up report on the alliance's Lok Sabha candidate announcements in Haryana, including Ramesh Rao Pilot.",
+        url: "https://timesofindia.indiatimes.com/city/gurgaon/lsp-bsp-alliance-announces-sirsa-kurukshetra-candidates/articleshow/68865670.cms",
+      },
+      {
+        category: "DAINIK BHASKAR",
+        title: "कांग्रेस कर रही किसान हित का नाटक",
+        description:
+          "A Mahendragarh report mentioning Ramesh Rao Pilot's role in organising the programme and his remarks on local issues.",
+        url: "https://www.bhaskar.com/news/har-oth-narn-mat-latest-narnaul-news-023004-2814921-nor.html",
+      },
+      {
+        category: "ELECTION COVERAGE",
+        title: "Bhiwani-Mahendragarh Lok Sabha Results",
+        description:
+          "Explore constituency election results, including Ramesh Rao Pilot's 2019 electoral record.",
+        url: "https://timesofindia.indiatimes.com/elections/lok-sabha-constituencies/haryana/bhiwani-mahendragarh",
+      },
+    ].map((item, index) => (
+      <motion.article
+        className="media-card"
+        key={item.title}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{
+          duration: 0.55,
+          delay: index * 0.12,
+        }}
+      >
+        <span className="media-card-category">
+          {item.category}
+        </span>
+
+        <h3>{item.title}</h3>
+
+        <p>{item.description}</p>
+
+        <a
+          href={item.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Read ${item.title} on the original website`}
+        >
+          Read full article <ArrowRight size={16} />
+        </a>
+      </motion.article>
+    ))}
+  </div>
+</section>
 
       {/* EXCLUSIVE */}
       <section className="exclusive-section" id="exclusive">

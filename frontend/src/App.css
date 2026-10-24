@@ -2364,3 +2364,142 @@ footer#contact.site-footer {
     animation: none !important;
   }
 }
+/* ===== NAVBAR TEXT & LINKS SIZE ===== */
+
+/* Navbar spacing */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: nowrap;
+}
+
+/* Logo same rahega */
+.navbar .brand {
+  flex-shrink: 0;
+}
+
+/* Website name */
+.navbar .brand-text strong {
+  font-size: 21px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Subtitle */
+.navbar .brand-text small {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Navigation links */
+.navbar .nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: clamp(14px, 1.5vw, 23px);
+  flex: 1;
+  white-space: nowrap;
+}
+
+/* Individual links */
+.navbar .nav-links a {
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+/* Hover effect */
+.navbar .nav-links a:hover {
+  color: #c49a45;
+}
+
+/* Tablet screens */
+@media (max-width: 1200px) and (min-width: 1001px) {
+  .navbar .brand-text strong {
+    font-size: 17px;
+  }
+
+  .navbar .brand-text small {
+    font-size: 12px;
+  }
+
+  .navbar .nav-links {
+    gap: 12px;
+  }
+
+  .navbar .nav-links a {
+    font-size: 14px;
+  }
+}
+
+/* Mobile menu */
+@media (max-width: 1000px) {
+  .navbar .menu-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .navbar .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 22px;
+    white-space: normal;
+    background: #fff;
+    z-index: 999;
+  }
+
+  .navbar .nav-links.nav-open {
+    display: flex;
+  }
+
+  .navbar .nav-links a {
+    font-size: 17px;
+  }
+}
+
+/* Hindi / English Language Switch */
+.language-switch {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+
+.language-switch button {
+  border: none;
+  background: transparent;
+  color: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 6px 2px;
+  transition: color 0.25s ease;
+}
+
+.language-switch button:hover,
+.language-switch button.active {
+  color: #c49a45;
+}
+
+.language-switch span {
+  opacity: 0.5;
+}
+
+@media (max-width: 1000px) {
+  .language-switch {
+    margin-left: auto;
+    margin-right: 10px;
+  }
+}
