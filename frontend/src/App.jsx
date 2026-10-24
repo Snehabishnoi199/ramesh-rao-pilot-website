@@ -54,7 +54,7 @@ export default function App() {
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveSlide((current) => (current + 1) % heroSlides.length);
-    }, 40000);
+    }, 5000);
 
     return () => clearInterval(timer);
   }, []);
@@ -94,92 +94,135 @@ export default function App() {
         </button>
       </nav>
 
-      {/* HERO SLIDESHOW */}
-      <section className="hero">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={`copy-${activeSlide}`}
-            className="hero-copy"
-            initial={{ opacity: 0, x: -35 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
-            transition={{ duration: 0.45 }}
-          >
-            <motion.span
-              className="eyebrow"
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1, duration: 0.4 }}
-            >
-              {slide.eyebrow}
-            </motion.span>
+     
 
-            <motion.h1
-              initial={{ opacity: 0, y: 22 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.25, duration: 0.45 }}
-            >
-              {slide.title}
-              <span> {slide.highlight}</span>
-            </motion.h1>
+{/* HERO SLIDESHOW */}
+<section className="hero">
+  {/* TEXT: TOP TO BOTTOM, ONE BY ONE */}
+  <AnimatePresence mode="wait">
+    <motion.div
+      key={`copy-${activeSlide}`}
+      className="hero-copy"
+      initial={{ opacity: 0, y: -25 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -15 }}
+      transition={{
+        duration: 0.7,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+    >
+      {/* Eyebrow */}
+      <motion.span
+        className="eyebrow"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          delay: 0.15,
+          duration: 0.65,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+      >
+        {slide.eyebrow}
+      </motion.span>
 
-            <motion.p
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.45 }}
-            >
-              {slide.description}
-            </motion.p>
+      {/* Main Heading */}
+      <motion.h1
+        initial={{ opacity: 0, y: -25 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          delay: 0.3,
+          duration: 0.75,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+      >
+        {slide.title}
+        <span> {slide.highlight}</span>
+      </motion.h1>
 
-            <motion.a
-              className="primary-button"
-              href="#about"
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.55, duration: 0.4 }}
-            >
-              Explore His Journey <ArrowRight size={18} />
-            </motion.a>
-          </motion.div>
-        </AnimatePresence>
+      {/* Description */}
+      <motion.p
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          delay: 0.45,
+          duration: 0.75,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+      >
+        {slide.description}
+      </motion.p>
 
-        <div className="hero-art">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={`image-${activeSlide}`}
-              className="portrait-placeholder"
-              initial={{ opacity: 0, scale: 0.94, x: 25 }}
-              animate={{ opacity: 1, scale: 1, x: 0 }}
-              exit={{ opacity: 0, scale: 0.97, x: -15 }}
-              transition={{ duration: 0.5 }}
-            >
-              <img src={slide.image} alt={slide.alt} />
-            </motion.div>
-          </AnimatePresence>
+      {/* Button */}
+      <motion.a
+        className="primary-button"
+        href="#about"
+        initial={{ opacity: 0, y: -15 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          delay: 0.6,
+          duration: 0.7,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+      >
+        Explore His Journey <ArrowRight size={18} />
+      </motion.a>
+    </motion.div>
+  </AnimatePresence>
 
-          <div className="tricolour-line" />
+  {/* PHOTO: SLIDE IN FROM RIGHT */}
+  <div className="hero-art">
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={`image-${activeSlide}`}
+        className="portrait-placeholder"
+        initial={{
+          opacity: 0,
+          x: 80,
+          scale: 0.97,
+        }}
+        animate={{
+          opacity: 1,
+          x: 0,
+          scale: 1,
+        }}
+        exit={{
+          opacity: 0,
+          x: 40,
+          scale: 0.98,
+        }}
+        transition={{
+          duration: 0.9,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+      >
+        <img src={slide.image} alt={slide.alt} />
+      </motion.div>
+    </AnimatePresence>
 
-          <div className="hero-arrows">
-            <button
-              type="button"
-              className="hero-arrow"
-              onClick={() => changeSlide(-1)}
-              aria-label="Previous slide"
-            >
-              <ChevronLeft size={23} />
-            </button>
+    <div className="tricolour-line" />
 
-            <button
-              type="button"
-              className="hero-arrow"
-              onClick={() => changeSlide(1)}
-              aria-label="Next slide"
-            >
-              <ChevronRight size={23} />
-            </button>
-          </div>
-        </div>
-      </section>
+    {/* PREVIOUS / NEXT BUTTONS */}
+    <div className="hero-arrows">
+      <button
+        type="button"
+        className="hero-arrow"
+        onClick={() => changeSlide(-1)}
+        aria-label="Previous slide"
+      >
+        <ChevronLeft size={23} />
+      </button>
+
+      <button
+        type="button"
+        className="hero-arrow"
+        onClick={() => changeSlide(1)}
+        aria-label="Next slide"
+      >
+        <ChevronRight size={23} />
+      </button>
+    </div>
+  </div>
+</section>
 
       {/* ABOUT */}
       <section className="content-section" id="about">

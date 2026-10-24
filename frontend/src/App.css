@@ -2330,3 +2330,37 @@ footer#contact.site-footer {
     letter-spacing: -1px;
   }
 }
+
+/* ===== SMOOTH HERO ANIMATION FIX ===== */
+
+/* Let Framer Motion control the hero text animation */
+.hero .hero-copy {
+  animation: none !important;
+  will-change: transform, opacity;
+}
+
+/* Prevent CSS animations from competing with React animations */
+.hero::before {
+  animation: none !important;
+}
+
+/* Smooth rendering for the hero image */
+.hero-art .portrait-placeholder {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+/* Avoid unwanted transitions fighting with motion */
+.hero .hero-copy h1,
+.hero .hero-copy p,
+.hero .hero-copy .eyebrow,
+.hero .hero-copy .primary-button {
+  transition: none;
+}
+
+/* Respect reduced-motion accessibility preferences */
+@media (prefers-reduced-motion: reduce) {
+  .hero .hero-copy {
+    animation: none !important;
+  }
+}
