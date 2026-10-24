@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
   ArrowRight,
+  ArrowUp,
+  MapPin,
   Menu,
   ChevronLeft,
   ChevronRight,
@@ -13,7 +15,7 @@ const heroSlides = [
   {
     image: "/ramesh-rao-pilot.png",
     alt: "Dr. Ramesh Rao Pilot",
-    eyebrow: "MAHENDRAGARH Â· HARYANA",
+    eyebrow: "MAHENDRAGARH | HARYANA",
     title: "Dr. Ramesh Rao",
     highlight: "Pilot",
     description:
@@ -22,7 +24,7 @@ const heroSlides = [
   {
     image: "/event1.png",
     alt: "Dr. Ramesh Rao Pilot at a public gathering",
-    eyebrow: "PUBLIC SERVICE Â· HARYANA",
+    eyebrow: "PUBLIC SERVICE | HARYANA",
     title: "Dedicated to",
     highlight: "Public Service",
     description:
@@ -31,7 +33,7 @@ const heroSlides = [
   {
     image: "/event2.png",
     alt: "Dr. Ramesh Rao Pilot at a public event",
-    eyebrow: "MAHENDRAGARH Â· HARYANA",
+    eyebrow: "MAHENDRAGARH | HARYANA",
     title: "Building a",
     highlight: "Better Tomorrow",
     description:
@@ -52,7 +54,7 @@ export default function App() {
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveSlide((current) => (current + 1) % heroSlides.length);
-    }, 5000);
+    }, 40000);
 
     return () => clearInterval(timer);
   }, []);
@@ -60,9 +62,9 @@ export default function App() {
   const slide = heroSlides[activeSlide];
 
   return (
-    <main>
+    <main id="top">
       <nav className="navbar">
-        <a href="/" className="brand">
+        <a href="#top" className="brand">
           <span className="brand-mark">
             <img src="/ramesh-logo.png" alt="Dr. Ramesh Rao Pilot" />
           </span>
@@ -80,7 +82,14 @@ export default function App() {
           <a href="#contact">Contact</a>
         </div>
 
-        <button className="menu-button" aria-label="Menu" type="button">
+        <button
+          className="menu-button"
+          aria-label="Menu"
+          type="button"
+          onClick={() => {
+            document.querySelector(".nav-links")?.classList.toggle("nav-open");
+          }}
+        >
           <Menu />
         </button>
       </nav>
@@ -196,7 +205,7 @@ export default function App() {
           viewport={{ once: true, amount: 0.25 }}
           transition={{ duration: 0.7 }}
         >
-          <span className="card-symbol">âœ³</span>
+          <span className="card-symbol">✳</span>
           <h3>Professional Journey</h3>
           <p>
             A dedicated space for verified milestones and
@@ -270,7 +279,10 @@ export default function App() {
               viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.65, delay: 0.15 }}
             >
-              <img src="/event2.png" alt="Dr. Ramesh Rao Pilot at a public event" />
+              <img
+                src="/event2.png"
+                alt="Dr. Ramesh Rao Pilot at a public event"
+              />
 
               <div className="news-small-content">
                 <span className="news-category">PUBLIC ACTIVITIES</span>
@@ -400,7 +412,7 @@ export default function App() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <span className="quote-mark">â€œ</span>
+              <span className="quote-mark">“</span>
               <span className="exclusive-tag">THOUGHTS &amp; VALUES</span>
               <h3>A journey shaped by purpose and dedication.</h3>
               <p>
@@ -417,7 +429,10 @@ export default function App() {
               viewport={{ once: true }}
               transition={{ duration: 0.65, delay: 0.1 }}
             >
-              <img src="/event5.png" alt="Dr. Ramesh Rao Pilot at a public gathering" />
+              <img
+                src="/event5.png"
+                alt="Dr. Ramesh Rao Pilot at a public gathering"
+              />
               <span className="exclusive-tag photo-tag">PUBLIC LIFE</span>
               <div className="exclusive-photo-caption">
                 <h3>Moments from the journey</h3>
@@ -442,7 +457,9 @@ export default function App() {
               <div className="exclusive-photo-caption">
                 <h3>The person behind the public profile</h3>
                 <p>Explore his journey and verified background.</p>
-                <a href="#about">Discover more â†—</a>
+                <a href="#about">
+                  Discover more <ArrowRight size={15} />
+                </a>
               </div>
             </motion.article>
           </div>
@@ -477,7 +494,7 @@ export default function App() {
                 stories from public engagements.
               </p>
               <a href="#news">
-                Explore updates <span>â†—</span>
+                Explore updates <ArrowRight size={16} />
               </a>
             </motion.article>
           </div>
@@ -510,7 +527,9 @@ export default function App() {
           </a>
         </motion.div>
 
-        <span className="journey-side-label">Dr. Ramesh Rao Pilot Â· HARYANA</span>
+        <span className="journey-side-label">
+          Dr. Ramesh Rao Pilot | HARYANA
+        </span>
       </section>
 
       {/* PUBLIC ENGAGEMENTS */}
@@ -571,100 +590,99 @@ export default function App() {
         </div>
       </section>
 
-      
-<footer id="contact" className="site-footer">
-  <div className="footer-top-line" />
+      {/* FOOTER */}
+      <footer id="contact" className="site-footer">
+        <div className="footer-top-line" />
 
-  <div className="footer-container">
-    <div className="footer-intro">
-      <div className="footer-brand">
-        <img
-          src="/ramesh-logo.png"
-          alt="Dr. Ramesh Rao Pilot logo"
-          className="footer-logo"
-        />
-        <div>
-          <h2>Dr. Ramesh Rao Pilot</h2>
-          <span>OFFICIAL WEBSITE</span>
+        <div className="footer-container">
+          <div className="footer-intro">
+            <div className="footer-brand">
+              <img
+                src="/ramesh-logo.png"
+                alt="Dr. Ramesh Rao Pilot logo"
+                className="footer-logo"
+              />
+              <div>
+                <h2>Dr. Ramesh Rao Pilot</h2>
+                <span>OFFICIAL WEBSITE</span>
+              </div>
+            </div>
+
+            <p className="footer-tagline">
+              Public Life. Community Connect.
+              <br />
+              A journey rooted in Mahendragarh, Haryana.
+            </p>
+
+            <p className="footer-description">
+              Explore the journey, public engagements, news and activities
+              of Dr. Ramesh Rao Pilot through this official website.
+            </p>
+
+            <a href="#about" className="footer-explore">
+              EXPLORE THE JOURNEY <ArrowRight size={17} />
+            </a>
+          </div>
+
+          <div className="footer-column">
+            <h3>EXPLORE</h3>
+            <a href="#about">About</a>
+            <a href="#activities">Public Activities</a>
+            <a href="#news">Latest News</a>
+            <a href="#media">Media Coverage</a>
+          </div>
+
+          <div className="footer-column">
+            <h3>DISCOVER</h3>
+            <a href="#about">Journey &amp; Background</a>
+            <a href="#activities">Community Engagement</a>
+            <a href="#news">Events &amp; Updates</a>
+            <a href="#exclusive">Featured Highlights</a>
+          </div>
+
+          <div className="footer-column footer-location">
+            <h3>LOCATION</h3>
+            <MapPin className="footer-location-icon" size={25} />
+            <h4>Mahendragarh</h4>
+            <p>Haryana, India</p>
+            <a href="#about" className="footer-contact-link">
+              Get in Touch <ArrowRight size={16} />
+            </a>
+          </div>
         </div>
-      </div>
 
-      <p className="footer-tagline">
-        Public Life. Community Connect.
-        <br />
-        A journey rooted in Mahendragarh, Haryana.
-      </p>
+        <div className="footer-highlight">
+          <span className="footer-highlight-line" />
+          <p>STAY CONNECTED WITH THE JOURNEY</p>
+          <span className="footer-highlight-line" />
+        </div>
 
-      <p className="footer-description">
-        Explore the journey, public engagements, news and activities
-        of Dr. Ramesh Rao Pilot through this official website.
-      </p>
+        <div className="footer-bottom">
+          <div className="footer-copyright">
+            <p>
+              &copy; {new Date().getFullYear()} Dr. Ramesh Rao Pilot.
+              All rights reserved.
+            </p>
+            <span>Mahendragarh, Haryana, India</span>
+          </div>
 
-      <a href="#about" className="footer-explore">
-        EXPLORE THE JOURNEY <span>â†’</span>
-      </a>
-    </div>
+          <div className="footer-credit">
+            <span>DESIGNED &amp; DEVELOPED BY</span>
+            <strong>PKY TECHNOLOGIES</strong>
+          </div>
 
-    <div className="footer-column">
-      <h3>EXPLORE</h3>
-      <a href="#about">About</a>
-      <a href="#activities">Public Activities</a>
-      <a href="#news">Latest News</a>
-      <a href="#media">Media Coverage</a>
-    </div>
-
-    <div className="footer-column">
-      <h3>DISCOVER</h3>
-      <a href="#about">Journey & Background</a>
-      <a href="#activities">Community Engagement</a>
-      <a href="#news">Events & Updates</a>
-      <a href="#exclusive">Featured Highlights</a>
-    </div>
-
-    <div className="footer-column footer-location">
-      <h3>LOCATION</h3>
-      <div className="footer-location-icon">âŒ–</div>
-      <h4>Mahendragarh</h4>
-      <p>Haryana, India</p>
-      <a href="#contact" className="footer-contact-link">
-        Get in Touch <span>â†—</span>
-      </a>
-    </div>
-  </div>
-
-  <div className="footer-highlight">
-    <span className="footer-highlight-line" />
-    <p>
-      STAY CONNECTED WITH THE JOURNEY
-    </p>
-    <span className="footer-highlight-line" />
-  </div>
-
-  <div className="footer-bottom">
-    <div className="footer-copyright">
-      <p>
-        Â© {new Date().getFullYear()} Dr. Ramesh Rao Pilot.
-        All rights reserved.
-      </p>
-      <span>Mahendragarh, Haryana, India</span>
-    </div>
-
-    <div className="footer-credit">
-      <span>DESIGNED & DEVELOPED BY</span>
-      <strong>PKY TECHNOLOGIES</strong>
-    </div>
-
-    <a href="#top" className="footer-back-top"
-       onClick={(e) => {
-         e.preventDefault();
-         window.scrollTo({ top: 0, behavior: "smooth" });
-       }}>
-      BACK TO TOP â†‘
-    </a>
-  </div>
-</footer>
-
-```
+          <a
+            href="#top"
+            className="footer-back-top"
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+          >
+            BACK TO TOP <ArrowUp size={15} />
+          </a>
+        </div>
+      </footer>
     </main>
   );
 }
