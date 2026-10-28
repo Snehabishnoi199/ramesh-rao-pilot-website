@@ -10,6 +10,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import "./App.css";
+import YouTubeSection from './components/YouTubeSection'
 
 const heroSlides = [
   {
@@ -255,6 +256,7 @@ export default function App() {
     </div>
   </div>
 </section>
+<YouTubeSection />
 
       {/* ABOUT */}
       <section className="content-section" id="about">
